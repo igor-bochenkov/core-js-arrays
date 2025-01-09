@@ -80,7 +80,8 @@ function findElement(arr, value) {
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
 function findAllOccurrences(arr, item) {
-  return arr.reduce((acc, current) => (current === item ? acc + 1 : acc), 0);
+  const newArr = arr.filter((i) => i === item);
+  return newArr.length;
 }
 
 /**
@@ -127,8 +128,13 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  const average = arr.reduce((acc, current) => acc + current, 0) / arr.length;
+  return +average.toFixed(2);
 }
 
 /**
